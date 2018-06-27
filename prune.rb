@@ -8,10 +8,11 @@ REPOSITORY = ARGV[0] # 'user/repo'
 DIST = ARGV[1] # 'ubuntu/xenial'
 PACKAGE = ARGV[2] #'package-name'
 LIMIT = ARGV[3].to_i
+ARCH = ARGV[4] or 'amd64'
 
 base_url = "https://#{API_TOKEN}:@packagecloud.io/api/v1/repos/#{REPOSITORY}"
 
-package_url = "/package/deb/#{DIST}/#{PACKAGE}/amd64/versions.json"
+package_url = "/package/deb/#{DIST}/#{PACKAGE}/#{ARCH}/versions.json"
 
 url = base_url + package_url
 
